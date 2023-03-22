@@ -10,6 +10,8 @@
   <version>1.0</version>
   <modules>
     <module>Controller</module>
+    <module>Repository</module>
+    <module>Service</module>
   </modules>
 
   <name>ItBootCampAssessment</name>
@@ -25,6 +27,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <mysql.version>8.0.32</mysql.version>
+    <org.hibernate.version>5.6.15.Final</org.hibernate.version>
   </properties>
 
   <dependencies>
