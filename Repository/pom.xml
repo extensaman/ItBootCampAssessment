@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Controller</artifactId>
+    <artifactId>Repository</artifactId>
 
-    <name>Controller module for ItBootcampAssessment</name>
+    <name>Repository module for ItBootcampAssessment</name>
 
     <properties>
         <!--
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         -->
@@ -24,14 +24,20 @@
     <dependencies>
 
         <dependency>
-            <groupId>it.bootcamp</groupId>
-            <artifactId>Service</artifactId>
-            <version>1.0</version>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>${org.hibernate.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <dependency>
