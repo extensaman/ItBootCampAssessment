@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,7 +59,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<UserDto> addUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> addUser(@RequestBody @Valid UserDto userDto) {
         logger.info("METHOD::addUser");
         UserDto userDtoFromRepo = userService.addUser(userDto);
         return new ResponseEntity<>(userDtoFromRepo, HttpStatus.CREATED);
