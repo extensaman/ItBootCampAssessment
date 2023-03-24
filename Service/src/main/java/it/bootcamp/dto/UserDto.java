@@ -2,13 +2,24 @@ package it.bootcamp.dto;
 
 import it.bootcamp.entity.Role;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class UserDto {
     private Long id;
+    @Size(min = 1, max = 40, message = "Up to 40 latin letters allowed")
+    @Pattern(regexp = "[a-zA-Z]*", message = "Only latin letters are allowed")
     private String surname;
+    @Size(min = 1, max = 20, message = "Up to 20 latin letters allowed")
+    @Pattern(regexp = "[a-zA-Z]*", message = "Only latin letters are allowed")
     private String name;
+    @Size(min = 1, max = 40, message = "Up to 40 latin letters allowed")
+    @Pattern(regexp = "[a-zA-Z]*", message = "Only latin letters are allowed")
     private String patronymic;
+    @Email(message = "Not match email format")
+    @Size(min = 1, max = 50, message = "Up to 50 latin letters allowed")
     private String email;
     private Role role;
 
