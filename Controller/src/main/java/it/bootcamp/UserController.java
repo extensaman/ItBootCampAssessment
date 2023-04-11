@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -37,7 +38,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<Page<UserDto>> getUserPage(@RequestParam(name = "page", required = false) Integer pageParam,
+    public ResponseEntity<List<UserDto>> getUserPage(@RequestParam(name = "page", required = false) Integer pageParam,
                                                      @RequestParam(name = "per_page", required = false) Integer perPageParam,
                                                      @RequestParam(name = "sort", required = false) String sortFieldParam) {
         logger.info("METHOD::getUserPage");
@@ -55,11 +56,11 @@ public class UserController {
                 .orElse(DEFAULT_SORT_FIELD);
 
         Page<UserDto> allUser = userService.findAllUser(page, perPage, sortField);
-        ResponseEntity<Page<UserDto>> response;
+        ResponseEntity<List<UserDto>> response;
         if (allUser.isEmpty()) {
             response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
-            response = ResponseEntity.ok(allUser);
+            response = ResponseEntity.ok(allUser.toList());
         }
         return response;
     }

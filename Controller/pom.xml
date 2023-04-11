@@ -12,6 +12,9 @@
     <artifactId>Controller</artifactId>
 
     <name>Controller module for ItBootcampAssessment</name>
+    <version>1.0</version>
+
+    <packaging>jar</packaging>
 
     <dependencies>
 
@@ -26,11 +29,15 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Spring Boot plugins -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
